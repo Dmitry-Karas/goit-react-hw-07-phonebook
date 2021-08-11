@@ -41,7 +41,10 @@ const contactsSlice = createSlice({
         isAnyOf(
           fetchContacts.fulfilled,
           addContact.fulfilled,
-          deleteContact.fulfilled
+          deleteContact.fulfilled,
+          fetchContacts.rejected,
+          addContact.rejected,
+          deleteContact.rejected
         ),
         (state) => {
           state.isLoading = false;
