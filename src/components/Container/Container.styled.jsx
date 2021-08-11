@@ -9,6 +9,16 @@ export const StyledContainer = styled.div`
 
   background-color: var(--color-bg);
 
+  & h1 {
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+
+  & h2 {
+    font-size: 28px;
+    margin-bottom: 60px;
+  }
+
   & h1,
   h2 {
     display: flex;
@@ -20,15 +30,5 @@ export const StyledContainer = styled.div`
     & svg {
       margin-right: 10px;
     }
-  }
-
-  & h1 {
-    font-size: 40px;
-    margin-bottom: 40px;
-  }
-
-  & h2 {
-    font-size: 28px;
-    margin-bottom: 60px;
   }
 `;

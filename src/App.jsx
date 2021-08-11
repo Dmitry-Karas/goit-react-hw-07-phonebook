@@ -1,14 +1,22 @@
+import { useEffect } from "react";
 import { RiContactsBook2Fill, RiContactsFill } from "react-icons/ri";
 import Section from "./components/Section/Section";
 import Container from "./components/Container/Container";
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import Filter from "./components/Filter/Filter";
-import { useSelector } from "react-redux";
-import { getContacts } from "redux/selectors/contactsSelectors";
+import { useDispatch, useSelector } from "react-redux";
+import { contactsOperations, contactsSelectors } from "redux/contacts";
+import { Loader } from "components/Loader/Loader";
 
 const App = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(contactsSelectors.getContacts);
+  const isLoading = useSelector(contactsSelectors.getIsLoading);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(contactsOperations.fetchContacts());
+  }, [dispatch]);
 
   return (
     <>
@@ -35,6 +43,7 @@ const App = () => {
           )}
         </Container>
       </Section>
+      <Loader loading={isLoading} />
     </>
   );
 };

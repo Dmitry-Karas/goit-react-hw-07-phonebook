@@ -10,15 +10,14 @@ import {
   Button,
 } from "./ContactForm.styled";
 import { FiUser, FiPhone, FiUserPlus } from "react-icons/fi";
-import { addContact } from "redux/slices/contactsSlice";
-import { getContacts } from "redux/selectors/contactsSelectors";
+import { contactsOperations, contactsSelectors } from "redux/contacts";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
 
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(contactsSelectors.getContacts);
 
   const nameInputId = nanoid();
   const telInputId = nanoid();
@@ -79,7 +78,7 @@ const ContactForm = () => {
 
     if (existedContact) return;
 
-    dispatch(addContact({ id: nanoid(), name, number }));
+    dispatch(contactsOperations.addContact({ id: nanoid(), name, number }));
 
     setName("");
     setNumber("");

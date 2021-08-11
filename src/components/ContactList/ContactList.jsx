@@ -1,12 +1,11 @@
 import { BsTrash } from "react-icons/bs";
 import { MdContactPhone } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
-import { getFilteredContacts } from "redux/selectors/contactsSelectors";
+import { contactsOperations, contactsSelectors } from "redux/contacts";
 import { List, Item, Button } from "./ContactList.styled";
-import { deleteContact } from "redux/slices/contactsSlice";
 
 const ContactList = () => {
-  const contacts = useSelector(getFilteredContacts);
+  const contacts = useSelector(contactsSelectors.getFilteredContacts);
 
   const dispatch = useDispatch();
 
@@ -22,7 +21,9 @@ const ContactList = () => {
 
             <span>{number}</span>
 
-            <Button onClick={() => dispatch(deleteContact(id))}>
+            <Button
+              onClick={() => dispatch(contactsOperations.deleteContact(id))}
+            >
               <BsTrash size="20" />
             </Button>
           </Item>

@@ -1,14 +1,9 @@
-export const getFilter = (state) => {
-  return state.filter;
-};
+export const getFilter = (state) => state.contacts.filter;
 
-export const getContacts = (state) => {
-  return state.contacts;
-};
+export const getContacts = (state) => state.contacts.items;
 
 export const getFilteredContacts = (state) => {
   const contacts = getContacts(state);
-
   const filter = getFilter(state);
 
   return contacts.filter(
@@ -17,3 +12,5 @@ export const getFilteredContacts = (state) => {
       contact.number.includes(filter)
   );
 };
+
+export const getIsLoading = (state) => state.contacts.isLoading;

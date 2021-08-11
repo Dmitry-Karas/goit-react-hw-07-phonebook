@@ -11,6 +11,7 @@ export const Item = styled.li`
   margin: 0 auto;
   padding: 10px 5px;
   border-bottom: 1px solid rosybrown;
+  text-transform: capitalize;
 
   & span {
     display: inline-flex;
