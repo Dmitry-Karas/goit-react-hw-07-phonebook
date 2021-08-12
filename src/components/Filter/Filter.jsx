@@ -23,7 +23,7 @@ const Filter = () => {
         />
         <Label htmlFor={filterInputId}>
           <AiOutlineFileSearch size="30" />
-          Find contacts by name
+          Find contact
         </Label>
       </InputContainer>
     </>
