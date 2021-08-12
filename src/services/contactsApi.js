@@ -10,7 +10,9 @@ export class ContactsAPI {
   }
 
   static async addContact(contact) {
-    await axios.post("/contacts", contact);
+    const { data } = await axios.post("/contacts", contact);
+
+    return data;
   }
 
   static async deleteContact(id) {
