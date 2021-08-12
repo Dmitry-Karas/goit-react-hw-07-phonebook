@@ -78,7 +78,7 @@ const ContactForm = () => {
 
     if (existedContact) return;
 
-    dispatch(contactsOperations.addContact({ id: nanoid(), name, number }));
+    dispatch(contactsOperations.addContact({ /*id: nanoid(),*/ name, number }));
 
     setName("");
     setNumber("");
