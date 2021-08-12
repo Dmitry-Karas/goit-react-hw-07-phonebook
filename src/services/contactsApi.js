@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:7777";
+axios.defaults.baseURL = "https://61156ec88f38520017a384ea.mockapi.io";
 
 export class ContactsAPI {
   static async fetchContacts() {
